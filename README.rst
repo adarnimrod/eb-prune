@@ -10,4 +10,4 @@ TODO
 - Changelog.
 - README,
 - Testing with different Python versions with tox and flake8.
-- Specify number of versions to keep.
+- Specify number of versions to keep, dry-run option.
