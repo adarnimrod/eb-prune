@@ -13,8 +13,8 @@ setup(
     classifiers=[
         'Development status :: 4 - Beta',
         'Intended Audience :: Developers',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 2',
         'Intended Audience :: System Administrators',
         'Topic :: Utilities',
     ],
@@ -22,7 +22,7 @@ setup(
     packages=find_packages(),
     install_requires=['botocore'],
     extras_require={
-        'dev': ['tox', 'flake8'], },
+        'dev': ['tox'], },
     entry_points={
         'console_scripts': [
             'eb-prune=eb_prune:main'], },
