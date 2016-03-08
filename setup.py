@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='eb-prune',
-    version='0.2.0',
+    version=open('VERSION', 'r').read(),
     description='Pruning of Elastic Beanstalk versions.',
     long_description=open('README.rst', 'r').read(),
     url='https://www.shore.co.il/git/eb-prune',
