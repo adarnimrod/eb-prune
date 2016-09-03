@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''Prune older versions of an application in Elastic Beanstalk.'''
-from __future__ import (absolute_import, division,
-                        print_function, unicode_literals)
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
 from argparse import ArgumentParser
 from botocore import session
 
@@ -26,9 +26,9 @@ def prune(versions_to_keep, dry_run):
         lambda x: (not x['VersionLabel'] in active_versions) and
         x['Status'] == 'UNPROCESSED', versions)
     # Remove the newest versions from the list.
-    old_versions = sorted(previous_versions,
-                          key=lambda x:
-                          x.get('DateCreated'))[:-versions_to_keep]
+    old_versions = sorted(
+        previous_versions,
+        key=lambda x: x.get('DateCreated'))[:-versions_to_keep]
     for version in old_versions:
         if not dry_run:
             response = beanstalk_client.delete_application_version(
@@ -36,11 +36,10 @@ def prune(versions_to_keep, dry_run):
                 VersionLabel=version['VersionLabel'],
                 DeleteSourceBundle=True)
             if response['ResponseMetadata']['HTTPStatusCode'] != 200:
-                raise RuntimeError(
-                    'Failed to delete version {0}.'.format(
-                        version['VersionLabel']))
+                raise RuntimeError('Failed to delete version {0}.'.format(
+                    version['VersionLabel']))
         print('Deleted version {0} of {1}.'.format(version['VersionLabel'],
-              version['ApplicationName']))
+                                                   version['ApplicationName']))
     print('Deleted {0} versions.'.format(len(old_versions)))
 
 
@@ -49,7 +48,8 @@ def main():
     parser.add_argument('versions_to_keep',
                         help='The number of versions to keep.',
                         type=int)
-    parser.add_argument('-d', '--dry-run',
+    parser.add_argument('-d',
+                        '--dry-run',
                         help='Dry run, do not delete versions.',
                         action='store_true')
     args = parser.parse_args()
