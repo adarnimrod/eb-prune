@@ -39,6 +39,20 @@ License
 This software is licnesed under the MIT licese (see the :code:`LICENSE.txt`
 file).
 
+Testing
+-------
+
+Tests require Python 2.7, Python 3.2 or later and Tox and are run by running
+:code:`tox`. Also, Travis CI is used to test on multiple Python versions for
+every push.
+
+Release
+-------
+
+Releases require Python 2.7 or Python 3.2 or later and Tox. To release a new
+version bump the version in the :code:`VERSION` file and run :code:`tox -e
+release`.
+
 Author
 ------
 
@@ -52,5 +66,5 @@ TODO
 
 - Fix Travis CI run on Python 3.2
   (https://travis-ci.org/adarnimrod/eb-prune/jobs/187705346).
-- Release to PyPI on tagged commits.
+- Release to PyPI on tagged commits from Travis CI.
 - Add tests using moto.
