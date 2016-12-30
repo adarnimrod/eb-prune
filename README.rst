@@ -1,6 +1,9 @@
 eb-prune
 ########
 
+.. image:: https://travis-ci.org/adarnimrod/eb-prune.svg?branch=master
+    :target: https://travis-ci.org/adarnimrod/eb-prune
+
 A CLI tool to prune old versions of Elastic Beanstalk.
 
 Installation
@@ -50,3 +53,4 @@ TODO
 - Fix Travis CI run on Python 3.2
   (https://travis-ci.org/adarnimrod/eb-prune/jobs/187705346).
 - Release to PyPI on tagged commits.
+- Add tests using moto.
