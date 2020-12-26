@@ -19,8 +19,8 @@ upload:
   image: python:3.6
   before_script:
     - pip install twine
-  script:
     - mv "$pypirc" $HOME/.pypirc
+  script:
     - python setup.py bdist_wheel
     - twine upload dist/*
   variables: *variables
