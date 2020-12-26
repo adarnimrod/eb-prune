@@ -1,8 +1,8 @@
 eb-prune
 ########
 
-.. image:: https://travis-ci.org/adarnimrod/eb-prune.svg?branch=master
-    :target: https://travis-ci.org/adarnimrod/eb-prune
+.. image:: https://git.shore.co.il/nimrod/eb-prune/badges/master/pipeline.svg
+    :target: https://git.shore.co.il/nimrod/eb-prune/-/commits/master
 
 A CLI tool to prune old versions of Elastic Beanstalk.
 
@@ -42,16 +42,16 @@ file).
 Testing
 -------
 
-Tests require Python 2.7, Python 3.3 or later and Tox and are run by running
-:code:`tox`. Also, Travis CI is used to test on multiple Python versions for
-every push.
+Various linters are configured with `pre-commit <https://pre-commit.com/>`_.
+Those are run in CI in `GitLab
+<https://git.shore.co.il/nimrod/eb-prune/-/pipelines>`_. To run locally, install
+pre-commit and run it.
 
 Release
 -------
 
-Releases require Python 2.7 or Python 3.3 or later and Tox. To release a new
-version bump the version in the :code:`VERSION` file and run :code:`tox -e
-release`.
+Update the version in :code:`VERSION`, commit, tag and push. GitLab will do the
+rest.
 
 Author
 ------
@@ -59,10 +59,4 @@ Author
 Nimrod Adar, `contact me <nimrod@shore.co.il>`_ or visit my `website
 <https://www.shore.co.il/>`_. Patches are welcome via `git send-email
 <http://git-scm.com/book/en/v2/Git-Commands-Email>`_. The repository is located
-at: https://www.shore.co.il/git/.
-
-TODO
-----
-
-- Release to PyPI on tagged commits from Travis CI.
-- Add tests using moto.
+at: https://git.shore.co.il/explore.
