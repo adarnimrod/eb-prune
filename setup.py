@@ -26,7 +26,7 @@ setup(
     packages=find_packages(),
     install_requires=["botocore"],
     extras_require={
-        "dev": ["tox"],
+        "dev": ["pre-commit", "twine"],
     },
     entry_points={
         "console_scripts": ["eb-prune=eb_prune:main"],
