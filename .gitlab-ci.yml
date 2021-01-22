@@ -1,45 +1,8 @@
 ---
-stages:
-  - test
-  - release
-
-pre-commit:
-  stage: test
-  image: adarnimrod/ci-images:pre-commit
-  variables: &variables
-    XDG_CACHE_HOME: "$CI_PROJECT_DIR/.cache"
-  script:
-    - pre-commit run -a
-  cache: &cache
-    paths:
-      - .cache/
-
-upload:
-  stage: release
-  image: python:3.6
-  before_script:
-    - pip install twine
-    - mv "$pypirc" $HOME/.pypirc
-  script:
-    - python setup.py bdist_wheel
-    - twine upload dist/*
-  variables: *variables
-  cache: *cache
-  rules:
-    - if: $CI_COMMIT_TAG
-  artifacts:
-    paths:
-      - dist/*.whl
-
-release:
-  stage: release
-  image: registry.gitlab.com/gitlab-org/release-cli:latest
-  script:
-    - !!str true
-  rules:
-    - if: $CI_COMMIT_TAG
-  release:
-    name: Release $CI_COMMIT_TAG
-    tag_name: $CI_COMMIT_TAG
-    ref: $CI_COMMIT_TAG
-    description: Release $CI_COMMIT_TAG
+include:
+  - project: shore/ci-templates
+    file: templates/pre-commit.yml
+  - project: shore/ci-templates
+    file: templates/python.yml
+  - project: shore/ci-templates
+    file: templates/gitlab-release.yml
