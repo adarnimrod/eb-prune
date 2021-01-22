@@ -3,6 +3,7 @@ eb-prune
 
 .. image:: https://git.shore.co.il/nimrod/eb-prune/badges/master/pipeline.svg
     :target: https://git.shore.co.il/nimrod/eb-prune/-/commits/master
+    :alt: pipeline status
 
 A CLI tool to prune old versions of Elastic Beanstalk.
 
